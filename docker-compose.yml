@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  node:
+    #image: node:8.17.0-slim
+    image: node:14.19-alpine
+    container_name: img-node
+    working_dir: /work
+    command: [sh,-c,"while [ 1 ];do  sleep 1; done"]
+    ports:
+      - 8080:8080
+    volumes:
+      - ./imgs-upload-srv-master:/work
+
+  redis:
+    image: redis:5.0.3
+    container_name: img-redis
+    ports:
+      - 6379:6379
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: cne123abc
+      
+  ## https://www.cnblogs.com/yoyotl/p/7826255.html
+  ## npm install -g cnpm --registry=https://registry.npm.taobao.org
+   

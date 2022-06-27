@@ -9,8 +9,9 @@ const mongoConfig = require('../config/mongo');
 
 module.exports.open = (cb) => {
 
-    const connStr = 'mongodb://' + mongoConfig.username + ':' + mongoConfig.password + '@' + mongoConfig.host + ':' + mongoConfig.port + '/' + mongoConfig.dbname;
-    mongoose.connect(connStr, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,});
+    const connStr = 'mongodb://' + mongoConfig.username + ':' + mongoConfig.password + '@' + mongoConfig.host + ':' + mongoConfig.port + '/' + mongoConfig.dbname + '?authSource=admin';
+    mongoose.connect(connStr, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,}).then(() => console.log( 'Database Connected' ))
+     .catch(err => console.log( err ));;
 
     let db = mongoose.connection;
 
