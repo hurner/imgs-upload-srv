@@ -1,3 +1,9 @@
+202206727
+1. 使用docker-compose启动运行环境。
+2. 最好使用外网环境进行build, vpn也会出现各种错误。
+3. 前端配置文件config/index.js中配置访问端口与转发服务地址。
+    调用官方的接口时，可以登录，但其它接口显示跨域。
+    在本地的服务时，不知道管理员用户名与密码。
 ![license](https://img.shields.io/badge/license-GNU-100000.svg)
 ![vue](https://img.shields.io/badge/>-vue-lightred.svg)
 ![node](https://img.shields.io/badge/>-nodejs-green.svg)
